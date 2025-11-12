@@ -301,7 +301,8 @@ class CalculatorScreen extends StatelessWidget {
                   return const Expanded(child: SizedBox());
                 }
                 return Expanded(
-                  flex: button == '0' ? 2 : 1,
+                  flex:100,
+                  // button == '0'||button == '='||button == '.' ?100 : 1,
                   child: Padding(
                     padding: const EdgeInsets.all(2),
                     child: CalcButton(
