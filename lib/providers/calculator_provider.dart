@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, prefer_final_fields
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../utils/calculator_logic.dart';
@@ -273,8 +275,7 @@ class CalculatorProvider extends ChangeNotifier {
                       currentNumber.substring(1);
       } else {
         // Add negative sign
-        _expression = _expression.substring(0, start) + 
-                      '-' + currentNumber;
+        _expression = '${_expression.substring(0, start)}-$currentNumber';
       }
       
       if (!_endsWithOperator()) {

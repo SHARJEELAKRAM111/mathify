@@ -68,8 +68,7 @@ class _CalcButtonState extends State<CalcButton>
       case ButtonType.clear:
         return colorScheme.error.withOpacity(0.1);
       case ButtonType.number:
-      default:
-        return colorScheme.surface;
+      return colorScheme.surface;
     }
   }
 
@@ -86,8 +85,7 @@ class _CalcButtonState extends State<CalcButton>
       case ButtonType.clear:
         return colorScheme.error;
       case ButtonType.number:
-      default:
-        return colorScheme.onSurface;
+      return colorScheme.onSurface;
     }
   }
 

@@ -329,7 +329,9 @@ class CalculatorScreen extends StatelessWidget {
     if (['+', '-', '×', '÷', '%', '+/-'].contains(button)) return ButtonType.operator;
     if (['sin', 'cos', 'tan', 'sin⁻¹', 'cos⁻¹', 'tan⁻¹', 'ln', 'log',
          'x²', 'x³', 'xʸ', '√', '∛', 'n!', 'eˣ', '10ˣ', 'π', 'e', '(', ')']
-        .contains(button)) return ButtonType.scientific;
+        .contains(button)) {
+      return ButtonType.scientific;
+    }
     return ButtonType.number;
   }
 }
