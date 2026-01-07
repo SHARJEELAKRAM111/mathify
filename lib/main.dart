@@ -125,7 +125,8 @@ class _SplashScreenState extends State<SplashScreen>
           ),
         ),
         child: Center(
-          child: AnimatedBuilder(
+          child:
+           AnimatedBuilder(
             animation: _animationController,
             builder: (context, child) {
               return FadeTransition(
@@ -160,6 +161,7 @@ class _SplashScreenState extends State<SplashScreen>
                           ),
                         ),
                       ),
+              
                       const SizedBox(height: 20),
                       Text(
                         'Mathify',
