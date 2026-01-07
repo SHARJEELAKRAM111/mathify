@@ -1,4 +1,4 @@
-package com.example.mathify
+package com.sharjeelsolutions.mathify
 
 import io.flutter.embedding.android.FlutterActivity
 
