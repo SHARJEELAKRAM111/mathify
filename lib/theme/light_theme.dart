@@ -80,7 +80,7 @@ final ThemeData lightTheme = ThemeData(
       color: const Color(0xFF1A1A1A),
     ),
   ),
-  cardTheme: CardTheme(
+  cardTheme: CardThemeData(
     color: Colors.white,
     elevation: 4,
     shape: RoundedRectangleBorder(
