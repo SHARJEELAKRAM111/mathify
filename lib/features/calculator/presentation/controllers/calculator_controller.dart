@@ -24,7 +24,7 @@ class CalculatorController extends ChangeNotifier {
   String _result = '0';
   bool _showResult = false;
 
-  bool _scientificEnabled = false;
+  bool _scientificEnabled = true;
   bool _hapticEnabled = true;
   bool _soundEnabled = false;
 

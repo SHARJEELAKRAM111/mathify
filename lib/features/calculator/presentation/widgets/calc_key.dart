@@ -100,7 +100,11 @@ class _CalcKeyState extends State<CalcKey> {
               onLongPress: widget.onLongPress,
               onHighlightChanged: (v) => setState(() => _pressed = v),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                 padding: EdgeInsets.symmetric(
+    horizontal: 10,
+    vertical: widget.style == CalcKeyStyle.operator ? 22 : 12, // ✅ smaller height
+  ),
+               // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                 child: Center(
                   child: _KeyFace(
                     label: widget.label,
@@ -147,7 +151,7 @@ class _KeyFace extends StatelessWidget {
           style: textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.w700,
             color: fg,
-            height: 1.0,
+            height: 1,
             letterSpacing: -0.4,
           ),
         ),

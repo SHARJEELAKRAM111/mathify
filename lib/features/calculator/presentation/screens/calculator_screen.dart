@@ -181,8 +181,8 @@ class _KeyPad extends StatelessWidget {
     // Layout intentionally non-standard: operators are in a vertical rail on the right.
     return LayoutBuilder(
       builder: (context, constraints) {
-        final maxHeight = constraints.maxHeight;
-        final isShort = maxHeight < 420;
+        // final maxHeight = constraints.maxHeight;
+        // final isShort = maxHeight < 420;
 
         return Row(
           children: [
@@ -249,8 +249,8 @@ class _KeyPad extends StatelessWidget {
                       
                     ],
                   ),
-                  if (!isShort) ...[
-                    const SizedBox(height: 2),
+                 
+                    // const SizedBox(height: 2),
                     Row(
                       children: [
                         CalcKey(
@@ -271,7 +271,7 @@ class _KeyPad extends StatelessWidget {
                       ],
                     ),
                   ],
-                ],
+                
               ),
             ),
             const SizedBox(width: 8),
@@ -309,6 +309,7 @@ class _KeyPad extends StatelessWidget {
                 ],
               ),
             ),
+          
           ],
         );
       },
