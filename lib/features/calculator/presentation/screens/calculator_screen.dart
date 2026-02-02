@@ -182,7 +182,7 @@ class _KeyPad extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final maxHeight = constraints.maxHeight;
-        final isShort = maxHeight < 520;
+        final isShort = maxHeight < 420;
 
         return Row(
           children: [
@@ -211,6 +211,7 @@ class _KeyPad extends StatelessWidget {
                         style: CalcKeyStyle.operator,
                         onTap: () => onKey('%'),
                       ),
+                      
                     ],
                   ),
                   Row(
@@ -245,6 +246,7 @@ class _KeyPad extends StatelessWidget {
                         label: '.',
                         onTap: () => onKey('.'),
                       ),
+                      
                     ],
                   ),
                   if (!isShort) ...[
