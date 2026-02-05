@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mathify/features/calculator/presentation/screens/notes_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/calculator_controller.dart';
@@ -33,6 +34,7 @@ class CalculatorScreen extends StatelessWidget {
             ),
             icon: const Icon(Icons.tune_rounded),
           ),
+    
         ],
       ),
       body: Padding(
@@ -278,8 +280,10 @@ class _KeyPad extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CalcKey(
+                    
                     label: '÷',
                     style: CalcKeyStyle.operator,
                     onTap: () => onKey('÷'),

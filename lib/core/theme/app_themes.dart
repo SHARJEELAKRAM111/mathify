@@ -14,8 +14,10 @@ class AppThemeSpec {
   final AppThemeId id;
   final String name;
   final ThemeData data;
+  final Color primaryColor;
 
-  const AppThemeSpec({required this.id, required this.name, required this.data});
+  const AppThemeSpec({required this.id, required this.name, required this.data, required this.primaryColor});
+
 }
 
 class AppThemes {
@@ -24,21 +26,26 @@ class AppThemes {
       id: AppThemeId.classicLight,
       name: 'Classic Light',
       data: _classicLight(),
+      primaryColor: Colors.lightBlue,
+
     ),
     AppThemeSpec(
       id: AppThemeId.amoledDark,
       name: 'AMOLED Dark',
       data: _amoledDark(),
+         primaryColor: Colors.cyan,
     ),
     AppThemeSpec(
       id: AppThemeId.neonCyber,
       name: 'Neon / Cyber',
       data: _neonCyber(),
+         primaryColor: Colors.indigoAccent,
     ),
     AppThemeSpec(
       id: AppThemeId.pastelSoft,
       name: 'Pastel / Soft',
       data: _pastelSoft(),
+         primaryColor: Colors.greenAccent,
     ),
   ];
 
