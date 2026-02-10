@@ -15,23 +15,43 @@ class CalculatorLogic {
   double sqrt(double value) => math.sqrt(value);
   double cubeRoot(double value) => math.pow(value, 1/3).toDouble();
   
-  // Trigonometric functions (input in radians)
-  double sin(double value) => math.sin(value * math.pi / 180);
-  double cos(double value) => math.cos(value * math.pi / 180);
-  double tan(double value) => math.tan(value * math.pi / 180);
+  // Trigonometric functions
+  // If [degrees] is true, input is interpreted as degrees.
+  // If [degrees] is false, input is interpreted as radians.
+  double sin(double value, {bool degrees = true}) {
+    final v = degrees ? (value * math.pi / 180) : value;
+    return math.sin(v);
+  }
+
+  double cos(double value, {bool degrees = true}) {
+    final v = degrees ? (value * math.pi / 180) : value;
+    return math.cos(v);
+  }
+
+  double tan(double value, {bool degrees = true}) {
+    final v = degrees ? (value * math.pi / 180) : value;
+    return math.tan(v);
+  }
   
-  // Inverse trigonometric functions (output in radians)
-  double asin(double value) {
+  // Inverse trigonometric functions
+  // If [degrees] is true, output is returned as degrees.
+  // If [degrees] is false, output is returned as radians.
+  double asin(double value, {bool degrees = true}) {
     if (value < -1 || value > 1) throw Exception('Invalid input for asin');
-    return math.asin(value) * 180 / math.pi;
+    final v = math.asin(value);
+    return degrees ? (v * 180 / math.pi) : v;
   }
   
-  double acos(double value) {
+  double acos(double value, {bool degrees = true}) {
     if (value < -1 || value > 1) throw Exception('Invalid input for acos');
-    return math.acos(value) * 180 / math.pi;
+    final v = math.acos(value);
+    return degrees ? (v * 180 / math.pi) : v;
   }
   
-  double atan(double value) => math.atan(value) * 180 / math.pi;
+  double atan(double value, {bool degrees = true}) {
+    final v = math.atan(value);
+    return degrees ? (v * 180 / math.pi) : v;
+  }
   
   // Logarithmic functions
   double ln(double value) {
