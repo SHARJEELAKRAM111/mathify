@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mathify/features/calculator/presentation/screens/notes_screen.dart';
+import 'package:mathify/features/calculator/presentation/screens/notes_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../controllers/calculator_controller.dart';
@@ -20,6 +20,18 @@ class CalculatorScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('CalcNova'),
         actions: [
+             IconButton(
+      tooltip: 'Add Notes',
+      icon: const Icon(Icons.note_add_rounded),
+      onPressed: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (_) => const NotesListScreen(),
+          ),
+        );
+      },
+    ),
+
           IconButton(
             tooltip: 'Customize',
             onPressed: () => showModalBottomSheet(
@@ -37,6 +49,7 @@ class CalculatorScreen extends StatelessWidget {
     
         ],
       ),
+     
       body: Padding(
         padding: const EdgeInsets.fromLTRB(14, 8, 14, 14),
         child: Column(
@@ -71,11 +84,12 @@ class CalculatorScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            if (calc.isScientificEnabled) _ScientificStrip(onKey: calc.onKey),
+           // if (calc.isScientificEnabled)
+             _ScientificStrip(onKey: calc.onKey),
             const SizedBox(height: 10),
             Expanded(
               child: _KeyPad(
-                isScientificEnabled: calc.isScientificEnabled,
+                isScientificEnabled: true,
                 onKey: calc.onKey,
               ),
             ),
@@ -262,12 +276,12 @@ class _KeyPad extends StatelessWidget {
                         ),
                         CalcKey(
                           label: '(',
-                          style: CalcKeyStyle.scientific,
+                          style: CalcKeyStyle.operator,
                           onTap: () => onKey('('),
                         ),
                         CalcKey(
                           label: ')',
-                          style: CalcKeyStyle.scientific,
+                          style: CalcKeyStyle.operator,
                           onTap: () => onKey(')'),
                         ),
                       ],

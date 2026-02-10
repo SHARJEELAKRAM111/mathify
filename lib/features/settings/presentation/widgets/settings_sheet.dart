@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mathify/features/calculator/presentation/screens/notes_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/theme/app_themes.dart';
@@ -11,7 +10,7 @@ class SettingsSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeController = context.watch<ThemeController>();
+    //final themeController = context.watch<ThemeController>();
     final calc = context.watch<CalculatorController>();
     final scheme = Theme.of(context).colorScheme;
 
@@ -33,7 +32,7 @@ class SettingsSheet extends StatelessWidget {
                   ),
                 ],
               ),
-              AnimatedGradientCard(),
+         
     
               const SizedBox(height: 8),
               // Text('Themes', style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700)),
@@ -68,13 +67,13 @@ class SettingsSheet extends StatelessWidget {
                 onChanged: (_) => calc.toggleSound(),
                 icon: Icons.volume_up_rounded,
               ),
-              _ToggleTile(
-                title: 'Scientific mode',
-                subtitle: 'Show advanced keys (sin, log, …)',
-                value: calc.isScientificEnabled,
-                onChanged: (_) => calc.toggleScientific(),
-                icon: Icons.science_rounded,
-              ),
+              // _ToggleTile(
+              //   title: 'Scientific mode',
+              //   subtitle: 'Show advanced keys (sin, log, …)',
+              //   value: calc.isScientificEnabled,
+              //   onChanged: (_) => calc.toggleScientific(),
+              //   icon: Icons.science_rounded,
+              // ),
               const SizedBox(height: 6),
             ],
           ),
@@ -327,113 +326,3 @@ class _ThemeRadioTile extends StatelessWidget {
     );
   }
 }
-
-
-class AnimatedGradientCard extends StatefulWidget {
-  const AnimatedGradientCard({super.key});
-
-  @override
-  State<AnimatedGradientCard> createState() => _AnimatedGradientCardState();
-}
-
-class _AnimatedGradientCardState extends State<AnimatedGradientCard>
-    with TickerProviderStateMixin {
-  late AnimationController _gradientController;
-  late AnimationController _pressController;
-
-  bool isHovered = false;
-  bool isPressed = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _gradientController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3))
-          ..repeat();
-
-    _pressController =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
-  }
-
-  @override
-  void dispose() {
-    _gradientController.dispose();
-    _pressController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => isHovered = true),
-      onExit: (_) => setState(() => isHovered = false),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // Card Back
-          AnimatedPositioned(
-            duration: const Duration(milliseconds: 200),
-            top: isHovered ? -95 : -75,
-            child: AnimatedScale(
-              scale: isHovered ? 1.1 : 1,
-              duration: const Duration(milliseconds: 200),
-              child: Container(
-                width: 240,
-                height: isHovered ? 245 : 210,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(150, 30, 31, 38),
-                  borderRadius: BorderRadius.circular(7),
-                ),
-              ),
-            ),
-          ),
-
-          // Main Card
-          InkWell(
-            onTap:(){
- Navigator.push(context, MaterialPageRoute(builder: (context){
-              return NotesListScreen();
-            }));
-            },
-            child: AnimatedBuilder(
-              animation: _gradientController,
-              builder: (context, _) {
-                return Container(
-                  width: double.infinity,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    gradient: LinearGradient(
-                      begin: Alignment(-1 + _gradientController.value * 2, 0),
-                      end: Alignment(1 + _gradientController.value * 2, 0),
-                      colors: const [
-                        Color(0xFFCE68D9),
-                        Color(0xFF45C6DB),
-                        Color(0xFF45DB79),
-                      ],
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                         Text('Add your Notes here',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,),),
-                         Icon(Icons.forward,size: 20,),
-                        // _topActions(),
-                        // const Spacer(),
-                        // _mainButton(),
-                        // const SizedBox(height: 12),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-    }

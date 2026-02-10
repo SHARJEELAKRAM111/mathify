@@ -24,7 +24,7 @@ class CalculatorController extends ChangeNotifier {
   String _result = '0';
   bool _showResult = false;
 
-  bool _scientificEnabled = true;
+  // bool _scientificEnabled = true;
   bool _hapticEnabled = true;
   bool _soundEnabled = false;
 
@@ -34,20 +34,20 @@ class CalculatorController extends ChangeNotifier {
   String get result => _result;
   bool get showResult => _showResult;
 
-  bool get isScientificEnabled => _scientificEnabled;
+  // bool get isScientificEnabled => _scientificEnabled;
   bool get hapticEnabled => _hapticEnabled;
   bool get soundEnabled => _soundEnabled;
 
   List<HistoryEntry> get history => List.unmodifiable(_history);
 
   void _loadSettings() {
-    _scientificEnabled = _prefs.getBool(PrefKeys.scientific, defaultValue: false);
+   // _scientificEnabled = _prefs.getBool(PrefKeys.scientific, defaultValue: false);
     _hapticEnabled = _prefs.getBool(PrefKeys.haptic, defaultValue: true);
     _soundEnabled = _prefs.getBool(PrefKeys.sound, defaultValue: false);
   }
 
   Future<void> _persistSettings() async {
-    await _prefs.setBool(PrefKeys.scientific, _scientificEnabled);
+  //  await _prefs.setBool(PrefKeys.scientific, _scientificEnabled);
     await _prefs.setBool(PrefKeys.haptic, _hapticEnabled);
     await _prefs.setBool(PrefKeys.sound, _soundEnabled);
   }
@@ -65,12 +65,12 @@ class CalculatorController extends ChangeNotifier {
     }
   }
 
-  Future<void> toggleScientific() async {
-    _scientificEnabled = !_scientificEnabled;
-    _feedback(strong: true);
-    await _persistSettings();
-    notifyListeners();
-  }
+  // Future<void> toggleScientific() async {
+  //   _scientificEnabled = !_scientificEnabled;
+  //   _feedback(strong: true);
+  //   await _persistSettings();
+  //   notifyListeners();
+  // }
 
   Future<void> toggleHaptic() async {
     _hapticEnabled = !_hapticEnabled;
