@@ -51,7 +51,8 @@ class CalculatorScreen extends StatelessWidget {
       ),
      
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(14, 8, 14, 14),
+        // padding: const EdgeInsets.all(0),
+        padding: const EdgeInsets.fromLTRB(14, 8, 14, 0),
         child: Column(
           children: [
             GestureDetector(
@@ -206,85 +207,97 @@ class _KeyPad extends StatelessWidget {
               flex: 3,
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      CalcKey(
-                        label: 'C',
-                        style: CalcKeyStyle.action,
-                        onTap: () => onKey('C'),
-                        onLongPress: () => onKey('AC'),
-                        subtitle: 'hold: AC',
-                      ),
-                      CalcKey(
-                        label: 'DEL',
-                        style: CalcKeyStyle.action,
-                        onTap: () => onKey('DEL'),
-                        onLongPress: () => onKey('AC'),
-                        subtitle: 'hold: AC',
-                      ),
-                      CalcKey(
-                        label: '%',
-                        style: CalcKeyStyle.operator,
-                        onTap: () => onKey('%'),
-                      ),
-                      
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        CalcKey(
+                          label: 'C',
+                          style: CalcKeyStyle.action,
+                          onTap: () => onKey('C'),
+                          onLongPress: () => onKey('AC'),
+                          subtitle: 'hold: AC',
+                        ),
+                        CalcKey(
+                          label: 'DEL',
+                          style: CalcKeyStyle.action,
+                          onTap: () => onKey('DEL'),
+                          onLongPress: () => onKey('AC'),
+                          subtitle: 'hold: AC',
+                        ),
+                        CalcKey(
+                          label: '%',
+                          style: CalcKeyStyle.operator,
+                          onTap: () => onKey('%'),
+                        ),
+                        
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      CalcKey(label: '7', onTap: () => onKey('7')),
-                      CalcKey(label: '8', onTap: () => onKey('8')),
-                      CalcKey(label: '9', onTap: () => onKey('9')),
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        CalcKey(label: '7', onTap: () => onKey('7')),
+                        CalcKey(label: '8', onTap: () => onKey('8')),
+                        CalcKey(label: '9', onTap: () => onKey('9')),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      CalcKey(label: '4', onTap: () => onKey('4')),
-                      CalcKey(label: '5', onTap: () => onKey('5')),
-                      CalcKey(label: '6', onTap: () => onKey('6')),
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        CalcKey(label: '4', onTap: () => onKey('4')),
+                        CalcKey(label: '5', onTap: () => onKey('5')),
+                        CalcKey(label: '6', onTap: () => onKey('6')),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      CalcKey(label: '1', onTap: () => onKey('1')),
-                      CalcKey(label: '2', onTap: () => onKey('2')),
-                      CalcKey(label: '3', onTap: () => onKey('3')),
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        CalcKey(label: '1', onTap: () => onKey('1')),
+                        CalcKey(label: '2', onTap: () => onKey('2')),
+                        CalcKey(label: '3', onTap: () => onKey('3')),
+                      ],
+                    ),
                   ),
-                  Row(
-                    children: [
-                      CalcKey(
-                        label: '0',
-                        flex: 2,
-                        onTap: () => onKey('0'),
-                      ),
-                      CalcKey(
-                        label: '.',
-                        onTap: () => onKey('.'),
-                      ),
-                      
-                    ],
+                  Expanded(
+                    child: Row(
+                      children: [
+                        CalcKey(
+                          label: '0',
+                          flex: 2,
+                          onTap: () => onKey('0'),
+                        ),
+                        CalcKey(
+                          label: '.',
+                          onTap: () => onKey('.'),
+                        ),
+                        
+                      ],
+                    ),
                   ),
                  
                     // const SizedBox(height: 2),
-                    Row(
-                      children: [
-                        CalcKey(
-                          label: '+/-',
-                          style: CalcKeyStyle.operator,
-                          onTap: () => onKey('+/-'),
-                        ),
-                        CalcKey(
-                          label: '(',
-                          style: CalcKeyStyle.operator,
-                          onTap: () => onKey('('),
-                        ),
-                        CalcKey(
-                          label: ')',
-                          style: CalcKeyStyle.operator,
-                          onTap: () => onKey(')'),
-                        ),
-                      ],
+                    Expanded(
+                      child: Row(
+                        children: [
+                          CalcKey(
+                            label: '+/-',
+                            style: CalcKeyStyle.operator,
+                            onTap: () => onKey('+/-'),
+                          ),
+                          CalcKey(
+                            label: '(',
+                            style: CalcKeyStyle.operator,
+                            onTap: () => onKey('('),
+                          ),
+                          CalcKey(
+                            label: ')',
+                            style: CalcKeyStyle.operator,
+                            onTap: () => onKey(')'),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 
