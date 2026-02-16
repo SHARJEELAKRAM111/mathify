@@ -101,8 +101,8 @@ class _CalcKeyState extends State<CalcKey> {
               onHighlightChanged: (v) => setState(() => _pressed = v),
               child: Padding(
                  padding: EdgeInsets.symmetric(
-    horizontal: 10,
-    vertical: widget.style == CalcKeyStyle.operator ? 22 : 12, // ✅ smaller height
+   // horizontal: 10,
+    //vertical: widget.style == CalcKeyStyle.operator ? 22 : 12, // ✅ smaller height
   ),
                // padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
                 child: Center(

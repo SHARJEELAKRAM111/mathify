@@ -18,7 +18,9 @@ class CalculatorScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CalcNova'),
+
+        title: 
+        const Text('CalcPad'),
         actions: [
              IconButton(
       tooltip: 'Add Notes',
@@ -55,6 +57,7 @@ class CalculatorScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 8, 14, 0),
         child: Column(
           children: [
+            // Image.asset("assets/icon/logo_mathify.png",height: 50,width: 50,),
             GestureDetector(
               onHorizontalDragEnd: (details) {
                 // Swipe left to backspace, swipe right to clear expression
