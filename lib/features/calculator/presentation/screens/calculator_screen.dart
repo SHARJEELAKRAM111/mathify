@@ -19,8 +19,11 @@ class CalculatorScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
 
-        title: 
-        const Text('CalcPad'),
+        title:
+        Icon(Icons.calculate),
+  //       Image.asset("assets/app_icon_calc.png",height: 30,width: 30,
+  // ),
+       // const Text('CalcPad'),
         actions: [
              IconButton(
       tooltip: 'Add Notes',
